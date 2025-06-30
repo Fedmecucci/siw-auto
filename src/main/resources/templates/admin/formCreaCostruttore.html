@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>nuovo costruttore</title>
+<link rel="stylesheet" href="/css/co.css">
+</head>
+<body>
+
+<h1>Aggiungi Costruttore</h1>
+    <form th:action="@{/admin/formCreaCostruttore}" method="POST" th:object="${costruttore}" enctype="multipart/form-data">
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+        </div>
+        
+         <div class="form-group">
+            <label>nome:</label>
+            <span><input type="text" th:field="${costruttore.nome}"></span>
+            <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+        </div>
+
+        <div class="form-group">
+            <label>anno fondazione:</label>
+            <span><input type="text" th:field="${costruttore.annoFondazione}"></span>
+            <span th:if="${#fields.hasErrors('annoFondazione')}" th:errors="*{annoFondazione}"></span>
+        </div>
+        
+          <div class="form-group">
+            <label>nazione:</label>
+            <span><input type="text" th:field="${costruttore.nazione}"></span>
+            <span th:if="${#fields.hasErrors('nazione')}" th:errors="*{nazione}"></span>
+        </div>
+       
+            
+	<div class="form-group">
+  <span>Foto costruttore:</span> <input type="file"
+					id="imageFile" name="imageFile" >
+				
+                
+</div>
+        <div class="form-group">
+            <span><button type="submit">Conferma</button></span>
+        </div>
+</form>
+
+</body>
+</html>

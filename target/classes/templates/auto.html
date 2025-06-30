@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>auto</title>
+<link rel="stylesheet" href="/css/auto.css">
+</head>
+<body>
+
+<header>
+	<div class="header-links">
+		<a href="/">Home</a> 
+		<a href="/login">Login</a>
+	</div>
+	</header>
+	<main>
+		<h1 th:text="${auto.modello}"> Modello auto:</h1>
+
+		<div class="auto-info">
+			<div class="info-item">
+				<label>Anno: <span th:text="${auto.anno}">anno</span></label>
+			</div>
+			
+			<div class="auto-info">
+			<div class="info-item">
+				<label>prezzo: <span th:text="${auto.prezzo}">prezzo</span></label>
+			</div>
+			
+			
+
+
+
+		<img th:src="'data:image/jpeg;base64,' + ${auto.immagine}"
+			alt="Immagine auto">
+
+
+		<div class="no-auto" th:unless="${auto}">Non esiste</div>
+	</main>
+	
+
+</body>
+</html>

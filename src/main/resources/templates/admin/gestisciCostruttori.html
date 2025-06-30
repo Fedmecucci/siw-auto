@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>pagina costruttori admin</title>
+<link rel="stylesheet" href="/css/paginaCostruttori1.css" />
+</head>
+<body>
+
+<header>
+	<div class="header-links">
+           <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </header>
+    
+    <h1>Costruttori</h1>
+ 
+    <div class="container">
+        <div th:if="${costruttori == null || costruttori.isEmpty()}">Non ci sono costruttori nel sistema</div>
+        <div th:each="costruttore : ${costruttori}" class="costruttore-item">
+            <a th:href="@{'/costruttore' + ${costruttore.id}}" th:text="${costruttore.nome}"></a>
+            <a th:href="@{'/admin/formModificaCostruttore' + '/' + ${costruttore.id}}">Aggiorna</a>
+            <a th:href="@{'/admin/cancellaCostruttore' + '/' + ${costruttore.id}}">Cancella</a>
+            
+				</div>
+
+</body>
+</html>

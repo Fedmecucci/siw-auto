@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title> pagina macchine</title>
+<link rel="stylesheet" href="/css/paginaMacchine.css" />
+</head>
+<body>
+
+<header>
+  
+	<div class="header-links">
+           <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </header>
+    
+    <h1> Auto</h1>
+   
+   
+    <div class="container">
+        <div th:if="${macchine == null || macchine.isEmpty()}">Non ci sono auto nel sistema</div>
+       
+        <div th:each="auto : ${macchine}" class="auto-item">
+            <a th:href="@{'/auto' + ${auto.id}}" th:text="${auto.modello}"></a>
+<!--             <a th:href="@{'/auto' + ${auto.id}}" th:text="${auto.anno}"></a>  -->
+            
+				
+ 		
+				
+             
+            <img th:src="'data:image/jpeg;base64,' + ${auto.immagine}" alt="Immagine auto">
+        </div>
+
+</body>
+</html>

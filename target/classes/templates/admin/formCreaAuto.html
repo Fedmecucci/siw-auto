@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>nuova auto</title>
+<link rel="stylesheet" href="/css/au.css">
+</head>
+<body>
+
+<h1>Aggiungi Auto</h1>
+    <form th:action="@{/admin/formCreaAuto}" method="POST" th:object="${auto}" enctype="multipart/form-data">
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+        </div>
+        
+         <div class="form-group">
+            <label>modello:</label>
+            <span><input type="text" th:field="${auto.modello}"></span>
+            <span th:if="${#fields.hasErrors('modello')}" th:errors="*{modello}"></span>
+        </div>
+
+        <div class="form-group">
+            <label>anno:</label>
+            <span><input type="text" th:field="${auto.anno}"></span>
+            <span th:if="${#fields.hasErrors('anno')}" th:errors="*{anno}"></span>
+        </div>
+        
+         <div class="form-group">
+            <label>prezzo:</label>
+            <span><input type="text" th:field="${auto.prezzo}"></span>
+            <span th:if="${#fields.hasErrors('prezzo')}" th:errors="*{prezzo}"></span>
+        </div>
+        
+        <div class="form-group">
+            <label>Costruttori:</label>
+    <select multiple th:field="*{costruttore}" class="form-control">
+        <option th:each="costruttore : ${listaCostruttori}"
+                th:value="${costruttore.id}"
+                th:text="${costruttore.nome}">
+        </option>
+    </select>
+    <span th:if="${#fields.hasErrors('costruttore')}" th:errors="*{costruttore}"></span>        </div>
+            
+	<div class="form-group">
+  <span>Foto Auto:</span> <input type="file"
+					id="imageFile" name="imageFile" >
+				
+                
+</div>
+        <div class="form-group">
+            <span><button type="submit">Conferma</button></span>
+        </div>
+</form>
+
+
+</body>
+</html>

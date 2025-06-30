@@ -1,6 +1,7 @@
 package it.uniroma3.siw.model;
 
 import java.util.List;
+import java.util.Objects;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
@@ -80,6 +81,23 @@ public class Costruttore {
 
 	public void setMacchine(List<Auto> macchine) {
 		this.macchine = macchine;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(annoFondazione, nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Costruttore other = (Costruttore) obj;
+		return Objects.equals(annoFondazione, other.annoFondazione) && Objects.equals(nome, other.nome);
 	}
 
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>pagina auto admin</title>
+<link rel="stylesheet" href="/css/paginaMacchine1.css" />
+</head>
+<body>
+
+<header>
+	<div class="header-links">
+           <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </header>
+    
+    
+     <h1>Auto</h1>
+ 
+    <div class="container">
+        <div th:if="${macchine == null || macchine.isEmpty()}">Non ci sono macchine nel sistema</div>
+        <div th:each="auto : ${macchine}" class="auto-item">
+            <a th:href="@{'/auto' + ${auto.id}}" th:text="${auto.modello}"></a>
+            <a th:href="@{'/admin/formModificaAuto' + '/' + ${auto.id}}">Aggiorna</a>
+            <a th:href="@{'/admin/cancellaAuto' + '/' + ${auto.id}}">Cancella</a>
+            
+				</div>
+</body>
+</html>

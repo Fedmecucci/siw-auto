@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>modifica costruttore</title>
+<link rel="stylesheet" href="/css/costruttore.css">
+</head>
+<body>
+
+<header>
+
+	
+		<div class="header-links">
+		    <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+	
+	</header>
+	
+	<h1>Modifica Costruttore</h1>
+	<main>
+	<div class="costruttore-info">
+	<form th:action="@{/admin/formModificaCostruttore/{id}}" method="POST" >
+	<input type="hidden" name="id" th:value="${costruttore.id}" />
+  		
+		<div class="info-item">
+		<label>
+			 <span><a>Nome:</a> <span><input type="text" name="nuovoNome" placeholder="Nuovo nome" th:value="${costruttore.nome}" /></span>
+		   
+		   </label>
+</div><div class="info-item">
+		<label>
+			<a>Anno fondazione:</a> <span><input type="text" name="nuovoAnnoFondazione" placeholder="Nuovo anno fondazione" th:value="${costruttore.annoFondazione}" /></span>
+
+		
+		  
+		
+		
+		
+		
+			<span><button type="submit">Conferma</button></span>
+		</label></div>
+	</form>
+	</div>
+	</main>
+	
+
+</body>
+</html>

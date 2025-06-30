@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>costruttore</title>
+<link rel="stylesheet" href="/css/costruttore.css">
+</head>
+<body>
+
+<header>
+<div class="header-links">
+		<a href="/">Home</a> 
+		<a href="/login">Login</a>
+	</div>
+	</header>
+	
+	<main>
+		<h1 th:text="${costruttore.nome}"> Costruttore:</h1>
+
+		<div class="costruttore-info">
+			<div class="info-item">
+				<label>Anno Fondazione: <span th:text="${costruttore.annoFondazione}">anno fondazione</span></label>
+			</div>
+			
+			<div class="costruttore-info">
+			<div class="info-item">
+				<label>nazione: <span th:text="${costruttore.nazione}">nazione</span></label>
+			</div>
+			
+			
+
+
+		<img th:src="'data:image/jpeg;base64,' + ${costruttore.immagine}"
+			alt="Immagine costruttore">
+
+
+		<div class="no-costruttore" th:unless="${costruttore}">Non esiste</div>
+	</main>
+	
+
+
+</body>
+</html>
