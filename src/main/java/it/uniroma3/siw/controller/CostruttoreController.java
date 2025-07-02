@@ -38,6 +38,7 @@ public class CostruttoreController {
 	@GetMapping("/paginaCostruttori")
 	public String paginaCostruttori(Model model) {
 		model.addAttribute("costruttori", this.costruttoreService.findAll());
+		
 		return "/paginaCostruttori.html";
 	}
 	

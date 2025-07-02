@@ -35,7 +35,7 @@ public class AutoController {
 	@GetMapping("/paginaMacchine")
     public String paginaMacchine(Model model) {
 	  model.addAttribute("macchine", this.autoService.findAll());
-	
+	 
 	 return "paginaMacchine.html";
     }
 
